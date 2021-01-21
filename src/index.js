@@ -13,8 +13,8 @@ if (!queryList.length) {
   import(`./${filepath}.js`)
 }
 
-const filterReg = new RegExp(/^\.\/util/)
-const jsList = require.context('./', true, /\.js/).keys().filter(v => !filterReg.test(v))
+const filterReg = new RegExp(/^\.\/example/)
+const jsList = require.context('./', true, /\.js/).keys().filter(v => filterReg.test(v))
 const jsLevelList = jsList.map(v => v.replace('./', '').split('/'))
 
 if (isJsFile(queryList, jsLevelList)) {
