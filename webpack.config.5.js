@@ -3,20 +3,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
   entry: {
-    'app': ['./src/index.js', 'webpack-hot-middleware/client?reload=true'],
+    'app': ['./src/index.js'],
   },
   output: {
     filename: '[name].[contenthash].bundle.js'
   },
   devtool: 'eval-source-map',
+  devServer: {
+    port: 8070,
+    hot: true,
+    client: {
+      overlay: true,
+    },
+    open: true
+  },
   target: 'web',
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
 
-    // 热重载
-    new webpack.HotModuleReplacementPlugin(),
     // Use NoErrorsPlugin for webpack 1.x
     new webpack.NoEmitOnErrorsPlugin()
   ],

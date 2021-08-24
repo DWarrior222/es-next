@@ -1,5 +1,3 @@
-import 'core-js/proposals/promise-any'  // 会在 Promise 增加 any 方法
-
 console.log('Promise.any is: ', Promise.any);
 
 const p1 = new Promise((resolve, reject) => {

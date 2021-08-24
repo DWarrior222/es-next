@@ -1,5 +1,3 @@
-import 'core-js/proposals/string-replace-all';
-
 const str = 'q=query+string+parameters';
 const res = str.replace(/\+/g, ' ');
 
