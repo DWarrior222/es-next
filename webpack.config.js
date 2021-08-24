@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
   entry: {
-    'app': ['./src/index.js', 'webpack-hot-middleware/client?reload=true'],
+    'app': ['./src/main.js', 'webpack-hot-middleware/client?reload=true'],
   },
   output: {
     filename: '[name].[contenthash].bundle.js'
@@ -11,9 +11,7 @@ module.exports = {
   devtool: 'eval-source-map',
   target: 'web',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'public/index.html'
-    }),
+    new HtmlWebpackPlugin(),
 
     // 热重载
     new webpack.HotModuleReplacementPlugin(),
@@ -31,6 +29,5 @@ module.exports = {
         } 
       }
     ]
-  },
-  mode: 'development'
+  }
 }

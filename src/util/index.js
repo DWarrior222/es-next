@@ -43,14 +43,14 @@ export function renderTemplate(list) {
 
 function getBackUrl(list) {
   if (!list) return []
-  let backPath = 'http://localhost:8070/?path=' + list.join('/')
+  let backPath = '/?path=' + list.join('/')
   return [{ fileName: '../', path: backPath, type: 'folder' }]
 }
 
 export function getRenderPathList({list = [], deep = 0, type = 'file'}) {
   return list.map(v => {
     const fileName = v[deep + 1]
-    const path = 'http://localhost:8070/?path=' + v.slice(0, deep + 2).join('/').replace(/\.js$/, '')
+    const path = '/?path=' + v.slice(0, deep + 2).join('/').replace(/\.js$/, '')
     return { fileName, path, type }
   })
 }

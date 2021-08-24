@@ -1,14 +1,16 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
-module.exports = {
+const isProp = process.env.NODE_ENV === 'production';
+const config = {
   entry: {
-    'app': ['./src/index.js'],
+    'app': ['./src/main.js'],
   },
   output: {
+    path: path.resolve(process.cwd(), 'dist'),
     filename: '[name].[contenthash].bundle.js'
   },
-  devtool: 'eval-source-map',
   devServer: {
     port: 8070,
     hot: true,
@@ -19,9 +21,8 @@ module.exports = {
   },
   target: 'web',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'public/index.html'
-    }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(),
 
     // Use NoErrorsPlugin for webpack 1.x
     new webpack.NoEmitOnErrorsPlugin()
@@ -37,6 +38,10 @@ module.exports = {
         } 
       }
     ]
-  },
-  mode: 'development'
+  }
 }
+
+if (!isProp) {
+  config.devtool = 'eval-source-map'
+}
+module.exports = config
