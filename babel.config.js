@@ -17,6 +17,14 @@ module.exports = {
           "proposals": true
         }
       }
-    ]
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        decoratorsBeforeExport: true
+      }
+    ],
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-syntax-function-bind"
   ]
 }
