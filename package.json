@@ -4,10 +4,9 @@
   "description": "最新的es语法脚手架",
   "private": true,
   "scripts": {
-    "build": "webpack --mode=production --config ./webpack.config.devserver.js",
+    "build": "webpack --mode=production --config ./webpack.config.new.js",
     "http-server": "http-server ./dist",
-    "dev": "webpack --mode=development --config ./server.js",
-    "serve": "webpack serve --mode=development --config ./webpack.config.devserver.js"
+    "serve": "webpack serve --mode=development --config ./webpack.config.new.js"
   },
   "author": "guanshuaijie",
   "license": "ISC",

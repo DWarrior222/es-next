@@ -20,6 +20,7 @@ const config = {
     open: true
   },
   target: 'web',
+  // target: ['web', 'es5'],
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(),
